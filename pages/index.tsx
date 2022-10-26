@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
+import Layout from "../src/components/layout";
 export default function Home() {
-  return <div className={styles.container}>home</div>;
+  return <Layout main={<div>home</div>} />;
 }
