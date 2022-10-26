@@ -17,9 +17,12 @@ const Layout = ({ main }: IProps) => {
               className="inline w-6"
             />
           </Link>
+          <Link href="/houses/add">Add House</Link>
+          <button onClick={() => {}}>Logout</button>
+          <Link href="/auth">Login / Signup</Link>
         </div>
       </nav>
-      {main}
+      <main style={{ minHeight: "calc(100vh - 64px)" }}>{main}</main>
     </div>
   );
 };
