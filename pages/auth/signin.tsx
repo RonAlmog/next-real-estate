@@ -19,12 +19,13 @@ const Signin = () => {
     const setTheProviders = async () => {
       const setupProviders = await getProviders();
       setProviders(setupProviders);
+      // console.log("providers:", setupProviders);
     };
     setTheProviders();
   }, []);
 
   const { data: session, status } = useSession();
-  console.log("providers:", providers);
+
   const email = "abc@gmail.com";
 
   if (status === "loading") {
