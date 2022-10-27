@@ -4,17 +4,24 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 // import {ApploProvider} from '@appolo/client'
 // import {useAppolo} from 'src/appolo'
-// import {AuthProvider} from 'src/auth/useAuth'
 import "../styles/index.css";
 
-export default function App({ Component, pageProps }: AppProps) {
+import { SessionProvider } from "next-auth/react";
+import { Session } from "next-auth";
+import Layout from "src/components/layout";
+
+function MyApp({ Component, pageProps }: AppProps<{ session: Session }>) {
   return (
     <>
       <Head>
         <title>Home sweet home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <SessionProvider session={pageProps.session}>
+        <Layout main={<Component {...pageProps} />} />;
+      </SessionProvider>
     </>
   );
 }
+
+export default MyApp;

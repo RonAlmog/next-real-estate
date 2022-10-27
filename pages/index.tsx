@@ -4,5 +4,5 @@ import styles from "../styles/Home.module.css";
 
 import Layout from "../src/components/layout";
 export default function Home() {
-  return <Layout main={<div>home</div>} />;
+  return <div>home</div>;
 }
