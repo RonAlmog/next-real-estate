@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#map {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  border: 1px dashed red;
+}
