@@ -71,31 +71,30 @@ const ReadySearchBox = ({ onSelectAddress, defaultValue }: ISearchBoxProps) => {
     } catch (error) {
       console.log("Error:", error);
     }
-
-    console.log({ status, data });
-
-    return (
-      <Combobox onSelect={handleSelect}>
-        <ComboboxInput
-          id="search"
-          value={value}
-          onChange={handleChange}
-          disabled={!ready}
-          placeholder="Search your location"
-          className="w-full p-2"
-          autoComplete="off"
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {status === "OK" &&
-              data.map(({ place_id, description }) => (
-                <ComboboxOption key={place_id} value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
-    );
   };
+  console.log({ status, data });
+
+  return (
+    <Combobox onSelect={handleSelect}>
+      <ComboboxInput
+        id="search"
+        value={value}
+        onChange={handleChange}
+        disabled={!ready}
+        placeholder="Search your location"
+        className="w-full p-2"
+        autoComplete="off"
+      />
+      <ComboboxPopover>
+        <ComboboxList>
+          {status === "OK" &&
+            data.map(({ place_id, description }) => (
+              <ComboboxOption key={place_id} value={description} />
+            ))}
+        </ComboboxList>
+      </ComboboxPopover>
+    </Combobox>
+  );
 };
 
 export default SearchBox;
