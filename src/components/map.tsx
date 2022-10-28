@@ -18,7 +18,7 @@ interface IProps {}
 const token = process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN;
 
 const MapComp = (props: IProps) => {
-  const mapRef = useRef<Map | null>(null);
+  const mapRef = useRef(null);
   const [viewport, setViewport] = useState<ViewState>({
     latitude: 44,
     longitude: -79,
@@ -30,6 +30,7 @@ const MapComp = (props: IProps) => {
   return (
     <div className="text-black relative" id="map">
       <Map
+        ref={mapRef}
         initialViewState={{
           latitude: 44,
           longitude: -79,
@@ -37,8 +38,13 @@ const MapComp = (props: IProps) => {
           bearing: 0,
           pitch: 0,
         }}
+        minZoom={5}
+        maxZoom={15}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxAccessToken={token}
+        onMoveEnd={(x) => {
+          console.log("move!", x);
+        }}
       >
         <Marker longitude={-122.4} latitude={37.8} color="green">
           <Pin />
