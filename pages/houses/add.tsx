@@ -1,11 +1,12 @@
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
 import React from "react";
+import HouseForm from "src/components/houseForm";
 
 type Props = {};
 
 const AddHouse = (props: Props) => {
-  return <div>AddHouse</div>;
+  return <HouseForm />;
 };
 
 export default AddHouse;
