@@ -69,7 +69,7 @@ const ReadySearchBox = ({ onSelectAddress, defaultValue }: ISearchBoxProps) => {
       const { lat, lng } = await getLatLng(results[0]);
       onSelectAddress(address, lat, lng);
     } catch (error) {
-      console.log("Error:", error);
+      console.log("😱 Error:", error);
     }
   };
   console.log({ status, data });

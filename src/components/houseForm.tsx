@@ -22,6 +22,7 @@ const HouseForm = ({}: Props) => {
     watch,
     formState: { errors },
   } = useForm<IFormData>({ defaultValues: {} });
+  const address = watch("address");
   //   useEffect(() => {
   //     register({ name: "address" }, { required: "Please enter the address" });
   //     register({ name: "latitude" }, { required: true, min: -90, max: 90 });
@@ -38,7 +39,7 @@ const HouseForm = ({}: Props) => {
         <label htmlFor="search" className="block">
           Search for your address
         </label>
-        {errors.address && <p>{errors.address.message}</p>}
+
         <SearchBox
           onSelectAddress={(address, latitude, longitude) => {
             setValue("address", address);
@@ -47,6 +48,8 @@ const HouseForm = ({}: Props) => {
           }}
           defaultValue=""
         />
+        {errors.address && <p>{errors.address.message}</p>}
+        <h2>{address}</h2>
       </div>
     </form>
   );
