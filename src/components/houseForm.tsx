@@ -32,7 +32,12 @@ const HouseForm = ({}: Props) => {
 
   const onSubmit = (data: IFormData) => {
     setSubmitting(true);
+    handleCreate(data);
+  };
+
+  const handleCreate = async (data: IFormData) => {
     console.log(data);
+    setSubmitting(false);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-xl py-4">
@@ -64,7 +69,7 @@ const HouseForm = ({}: Props) => {
             id="image"
             accept="image/*"
             style={{ display: "none" }}
-            {...register("image", { required: true })}
+            {...register("image", { required: "Please select an image file" })}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               if (event.target.files?.length) {
                 const file = event.target.files[0];
